@@ -29,11 +29,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Texan Home Repair and Solutions — Trusted Texas Roofers" },
+      { name: "description", content: "Family-owned, licensed roofing & home repair experts serving Texas. Free inspections, honest estimates, lifetime workmanship warranty." },
+      { name: "author", content: "Texan Home Repair and Solutions" },
+      { property: "og:title", content: "Texan Home Repair and Solutions" },
+      { property: "og:description", content: "Trusted Texas roofers. Free inspections, honest estimates, lifetime workmanship warranty." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -54,6 +54,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <HeadContent />
       </head>
       <body>
