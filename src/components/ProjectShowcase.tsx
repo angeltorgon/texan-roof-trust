@@ -1,4 +1,4 @@
-import { Star, X } from "lucide-react";
+import { Star } from "lucide-react";
 import { useState } from "react";
 import p1 from "@/assets/project-1.jpg";
 import p2 from "@/assets/project-2.jpg";
@@ -73,8 +73,7 @@ export function ProjectShowcase() {
 
       <Dialog open={active !== null} onOpenChange={(o) => !o && setActive(null)}>
         <DialogContent
-          showCloseButton={false}
-          className="max-w-6xl border-0 bg-transparent p-0 shadow-none sm:max-w-6xl"
+          className="max-w-6xl border-0 bg-transparent p-0 shadow-none sm:max-w-6xl [&>button]:bg-background/90 [&>button]:opacity-100 [&>button]:rounded-full [&>button]:p-2 [&>button]:right-4 [&>button]:top-4"
         >
           {project && (
             <>
@@ -86,14 +85,6 @@ export function ProjectShowcase() {
                   alt={`${project.title} for ${project.customer} in ${project.city}`}
                   className="max-h-[80vh] w-full object-contain"
                 />
-                <button
-                  type="button"
-                  onClick={() => setActive(null)}
-                  className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-background/90 text-foreground shadow-lg transition-transform hover:scale-105"
-                  aria-label="Close"
-                >
-                  <X className="h-5 w-5" />
-                </button>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary via-primary/70 to-transparent p-6 text-primary-foreground sm:p-8">
                   <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{project.city}</div>
                   <div className="mt-1 font-display text-2xl font-bold sm:text-3xl">{project.title}</div>
