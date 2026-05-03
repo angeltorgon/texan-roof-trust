@@ -1,0 +1,89 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/SiteLayout";
+import { Heart, Users, MapPin, Award, ArrowRight } from "lucide-react";
+import rooferImg from "@/assets/roofer-working.jpg";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About — Texan Home Repair and Solutions" },
+      { name: "description", content: "A family-owned Texas roofing company built on honest work, fair prices, and a handshake. Meet the team protecting Texas homes." },
+      { property: "og:title", content: "About Texan Home Repair and Solutions" },
+      { property: "og:description", content: "Family-owned Texas roofers. Honest work. Fair prices. A handshake you can trust." },
+    ],
+  }),
+  component: AboutPage,
+});
+
+function AboutPage() {
+  return (
+    <SiteLayout>
+      <section className="border-b border-border">
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-24 md:grid-cols-2">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Our Story</span>
+            <h1 className="mt-3 font-display text-5xl font-bold text-foreground md:text-6xl">
+              Three generations of <span className="text-accent">Texan craftsmanship.</span>
+            </h1>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Started in 2003 by Daniel Castillo with a single pickup truck and a borrowed ladder, Texan Home Repair
+              and Solutions has grown into one of the most trusted roofing companies in the state — without ever losing
+              the values that built it.
+            </p>
+            <p className="mt-4 text-muted-foreground">
+              We're still family-run. Daniel's son Marcos runs operations. His daughter Elena heads customer care.
+              And every crew lead has been with us for at least seven years. That's how we deliver work we're proud
+              to put our name on.
+            </p>
+          </div>
+          <img src={rooferImg} alt="Texan Home Repair roofer at work" className="rounded-2xl shadow-[var(--shadow-elevated)]" width={1280} height={1280} loading="lazy" />
+        </div>
+      </section>
+
+      <section className="bg-secondary">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">What we stand for</span>
+            <h2 className="mt-3 font-display text-4xl font-bold text-foreground md:text-5xl">Values that hold up under any storm.</h2>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: Heart, title: "Honesty First", desc: "If you don't need a new roof, we'll tell you. Period." },
+              { icon: Users, title: "Family Run", desc: "Owner-operated, with full-time crews — never subcontractors." },
+              { icon: MapPin, title: "Local Pride", desc: "Born in Texas. Built for Texas weather. Loyal to Texas homes." },
+              { icon: Award, title: "Master Elite", desc: "GAF certified — a designation held by only 2% of US roofers." },
+            ].map((v) => (
+              <div key={v.title} className="rounded-2xl bg-card p-8 shadow-[var(--shadow-card)]">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl text-accent-foreground" style={{ background: "var(--gradient-brand)" }}>
+                  <v.icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-foreground">{v.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-6 sm:grid-cols-3">
+          {[
+            { n: "20+", l: "Years in business" },
+            { n: "12,000+", l: "Roofs installed" },
+            { n: "5.0★", l: "Average rating" },
+          ].map((s) => (
+            <div key={s.l} className="rounded-2xl border border-border bg-card p-8 text-center shadow-[var(--shadow-card)]">
+              <div className="font-display text-5xl font-bold text-accent">{s.n}</div>
+              <div className="mt-2 text-sm uppercase tracking-wider text-muted-foreground">{s.l}</div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-16 text-center">
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-md bg-accent px-7 py-4 font-semibold text-accent-foreground transition-transform hover:scale-[1.02]">
+            Work with our team <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}
