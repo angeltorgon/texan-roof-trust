@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Shield, Award, Clock, Star, ArrowRight, CheckCircle2, Hammer, Home, CloudRain } from "lucide-react";
+import { ProjectShowcase } from "@/components/ProjectShowcase";
 import heroImg from "@/assets/hero-roof.jpg";
 import rooferImg from "@/assets/roofer-working.jpg";
 
