@@ -1,10 +1,12 @@
 import { Star } from "lucide-react";
+import { useState } from "react";
 import p1 from "@/assets/project-1.jpg";
 import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
 import p4 from "@/assets/project-4.jpg";
 import p5 from "@/assets/project-5.jpg";
 import p6 from "@/assets/project-6.jpg";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const projects = [
   { img: p1, title: "Architectural Shingle Replacement", customer: "The Hernandez Family", city: "Round Rock, TX", span: "md:col-span-2 md:row-span-2" },
@@ -16,6 +18,9 @@ const projects = [
 ];
 
 export function ProjectShowcase() {
+  const [active, setActive] = useState<number | null>(null);
+  const project = active !== null ? projects[active] : null;
+
   return (
     <section className="bg-secondary">
       <div className="mx-auto max-w-7xl px-6 py-24">
@@ -39,10 +44,13 @@ export function ProjectShowcase() {
         </div>
 
         <div className="mt-12 grid auto-rows-[260px] grid-cols-1 gap-4 md:grid-cols-4">
-          {projects.map((p) => (
-            <figure
+          {projects.map((p, i) => (
+            <button
+              type="button"
               key={p.title}
-              className={`group relative overflow-hidden rounded-2xl shadow-[var(--shadow-card)] ${p.span}`}
+              onClick={() => setActive(i)}
+              className={`group relative overflow-hidden rounded-2xl text-left shadow-[var(--shadow-card)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${p.span}`}
+              aria-label={`View larger image of ${p.title}`}
             >
               <img
                 src={p.img}
@@ -58,10 +66,35 @@ export function ProjectShowcase() {
                 <div className="mt-1 font-display text-xl font-bold leading-tight">{p.title}</div>
                 <div className="mt-1 text-sm text-primary-foreground/80">{p.customer}</div>
               </figcaption>
-            </figure>
+            </button>
           ))}
         </div>
       </div>
+
+      <Dialog open={active !== null} onOpenChange={(o) => !o && setActive(null)}>
+        <DialogContent
+          className="max-w-6xl border-0 bg-transparent p-0 shadow-none sm:max-w-6xl [&>button]:bg-background/90 [&>button]:opacity-100 [&>button]:rounded-full [&>button]:p-2 [&>button]:right-4 [&>button]:top-4"
+        >
+          {project && (
+            <>
+              <DialogTitle className="sr-only">{project.title}</DialogTitle>
+              <DialogDescription className="sr-only">{project.customer} — {project.city}</DialogDescription>
+              <div className="relative overflow-hidden rounded-2xl bg-primary">
+                <img
+                  src={project.img}
+                  alt={`${project.title} for ${project.customer} in ${project.city}`}
+                  className="max-h-[80vh] w-full object-contain"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary via-primary/70 to-transparent p-6 text-primary-foreground sm:p-8">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{project.city}</div>
+                  <div className="mt-1 font-display text-2xl font-bold sm:text-3xl">{project.title}</div>
+                  <div className="mt-1 text-primary-foreground/85">{project.customer}</div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
