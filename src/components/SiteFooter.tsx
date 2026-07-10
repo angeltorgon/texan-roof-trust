@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
 export function SiteFooter() {
   return (
@@ -27,6 +27,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/gallery" className="hover:text-accent">
+                Gallery
+              </Link>
+            </li>
+            <li>
               <Link to="/about" className="hover:text-accent">
                 About
               </Link>
@@ -41,9 +46,32 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-accent">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
-            <li className="flex items-center gap-2">(832) 820-9261</li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-accent" /> claims@texanhomerepairsolutions.com
+            <li className="flex flex-wrap items-center gap-2">
+              <a
+                href="tel:+18328209261"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+              >
+                <Phone className="h-4 w-4" />
+                (832) 820-9261
+              </a>
+              <a
+                href="https://wa.me/15551234567"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:claims@texanhomerepairsolutions.com"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+              >
+                <Mail className="h-4 w-4" />
+                claims@texanhomerepairsolutions.com
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-accent" /> All of Houston, TX and surrounding areas

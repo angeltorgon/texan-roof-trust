@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const nav = [
@@ -40,14 +40,25 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <a
-          href="tel:+18328209261"
-          className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
-        >
-          <Phone className="h-4 w-4" />
-          <span className="hidden sm:inline">(832) 820-9261</span>
-          <span className="sm:hidden">Call</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="tel:+18328209261"
+            className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+          >
+            <Phone className="h-4 w-4" />
+            <span className="hidden sm:inline">(832) 820-9261</span>
+            <span className="sm:hidden">Call</span>
+          </a>
+          <a
+            href="https://wa.me/15551234567"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span className="hidden sm:inline">WhatsApp</span>
+          </a>
+        </div>
       </div>
     </header>
   );
