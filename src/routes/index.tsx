@@ -47,7 +47,8 @@ function Index() {
         <div className="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 md:pb-28">
           <div className="max-w-3xl text-primary-foreground">
             <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl">
-              The deal you've been looking for.{" "}
+              <span>The deal you've been looking for.</span>
+              <br />
               <span className="text-accent">Texan Home Repair & Solutions</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
@@ -138,12 +139,6 @@ function Index() {
               height={1280}
               loading="lazy"
             />
-            <div className="absolute -bottom-6 -right-6 hidden rounded-xl bg-primary px-6 py-5 text-primary-foreground shadow-[var(--shadow-elevated)] md:block">
-              <div className="font-display text-4xl font-bold text-accent">12,000+</div>
-              <div className="text-sm uppercase tracking-wider text-primary-foreground/80">
-                Roofs delivered
-              </div>
-            </div>
           </div>
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">

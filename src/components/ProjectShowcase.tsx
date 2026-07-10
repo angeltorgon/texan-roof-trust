@@ -9,12 +9,48 @@ import p6 from "@/assets/project-6.jpg";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const projects = [
-  { img: p1, title: "Architectural Shingle Replacement", customer: "The Hernandez Family", city: "Round Rock, TX", span: "md:col-span-2 md:row-span-2" },
-  { img: p2, title: "Standing Seam Metal Roof", customer: "The Park Residence", city: "Austin, TX", span: "" },
-  { img: p3, title: "Spanish Tile Restoration", customer: "Casa de Olivera", city: "San Antonio, TX", span: "" },
-  { img: p4, title: "Full Tear-Off & Replacement", customer: "The Williams Family", city: "Plano, TX", span: "" },
-  { img: p5, title: "Premium Ridge Cap Detail", customer: "The Nguyen Home", city: "Houston, TX", span: "" },
-  { img: p6, title: "Storm Damage Restoration", customer: "The Carter Family", city: "Fort Worth, TX", span: "md:col-span-2" },
+  {
+    img: p1,
+    title: "Architectural Shingle Replacement",
+    customer: "The Hernandez Family",
+    city: "Round Rock, TX",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    img: p2,
+    title: "Standing Seam Metal Roof",
+    customer: "The Park Residence",
+    city: "Austin, TX",
+    span: "",
+  },
+  {
+    img: p3,
+    title: "Spanish Tile Restoration",
+    customer: "Casa de Olivera",
+    city: "San Antonio, TX",
+    span: "",
+  },
+  {
+    img: p4,
+    title: "Full Tear-Off & Replacement",
+    customer: "The Williams Family",
+    city: "Plano, TX",
+    span: "",
+  },
+  {
+    img: p5,
+    title: "Premium Ridge Cap Detail",
+    customer: "The Nguyen Home",
+    city: "Houston, TX",
+    span: "",
+  },
+  {
+    img: p6,
+    title: "Storm Damage Restoration",
+    customer: "The Carter Family",
+    city: "Fort Worth, TX",
+    span: "md:col-span-2",
+  },
 ];
 
 export function ProjectShowcase() {
@@ -26,20 +62,16 @@ export function ProjectShowcase() {
       <div className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Recent Work</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Recent Work
+            </span>
             <h2 className="mt-3 font-display text-4xl font-bold text-foreground md:text-5xl">
               Roofs we're proud to put our name on.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              A small sample of homes across Texas that trusted us with their most important investment.
+              A small sample of homes across Texas that trusted us with their most important
+              investment.
             </p>
-          </div>
-          <div className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm">
-            <div className="flex text-accent">
-              {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-accent" />)}
-            </div>
-            <span className="font-semibold text-foreground">5.0</span>
-            <span className="text-muted-foreground">from 800+ homeowners</span>
           </div>
         </div>
 
@@ -62,7 +94,9 @@ export function ProjectShowcase() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-primary-foreground">
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{p.city}</div>
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  {p.city}
+                </div>
                 <div className="mt-1 font-display text-xl font-bold leading-tight">{p.title}</div>
                 <div className="mt-1 text-sm text-primary-foreground/80">{p.customer}</div>
               </figcaption>
@@ -72,13 +106,13 @@ export function ProjectShowcase() {
       </div>
 
       <Dialog open={active !== null} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent
-          className="max-w-6xl border-0 bg-transparent p-0 shadow-none sm:max-w-6xl [&>button]:bg-background/90 [&>button]:opacity-100 [&>button]:rounded-full [&>button]:p-2 [&>button]:right-4 [&>button]:top-4"
-        >
+        <DialogContent className="max-w-6xl border-0 bg-transparent p-0 shadow-none sm:max-w-6xl [&>button]:bg-background/90 [&>button]:opacity-100 [&>button]:rounded-full [&>button]:p-2 [&>button]:right-4 [&>button]:top-4">
           {project && (
             <>
               <DialogTitle className="sr-only">{project.title}</DialogTitle>
-              <DialogDescription className="sr-only">{project.customer} — {project.city}</DialogDescription>
+              <DialogDescription className="sr-only">
+                {project.customer} — {project.city}
+              </DialogDescription>
               <div className="relative overflow-hidden rounded-2xl bg-primary">
                 <img
                   src={project.img}
@@ -86,8 +120,12 @@ export function ProjectShowcase() {
                   className="max-h-[80vh] w-full object-contain"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary via-primary/70 to-transparent p-6 text-primary-foreground sm:p-8">
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{project.city}</div>
-                  <div className="mt-1 font-display text-2xl font-bold sm:text-3xl">{project.title}</div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    {project.city}
+                  </div>
+                  <div className="mt-1 font-display text-2xl font-bold sm:text-3xl">
+                    {project.title}
+                  </div>
                   <div className="mt-1 text-primary-foreground/85">{project.customer}</div>
                 </div>
               </div>
