@@ -47,7 +47,8 @@ function Index() {
         <div className="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-end px-6 pb-20 pt-32 md:pb-28">
           <div className="max-w-3xl text-primary-foreground">
             <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl">
-              The roof over your family <span className="text-accent">deserves Texan hands.</span>
+              The deal you've been looking for.{" "}
+              <span className="text-accent">Texan Home Repair & Solutions</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
               Two decades of honest craftsmanship across the Lone Star State. Free inspections,

@@ -5,6 +5,7 @@ import logo from "@/assets/logo.png";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -14,7 +15,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Texan Home Repair and Solutions" className="h-12 w-12 object-contain" width={48} height={48} />
+          <img
+            src={logo}
+            alt="Texan Home Repair and Solutions"
+            className="h-12 w-12 object-contain"
+            width={48}
+            height={48}
+          />
           <div className="hidden sm:block leading-tight">
             <div className="font-display text-lg font-bold text-primary">Texan Home Repair</div>
             <div className="text-xs uppercase tracking-[0.2em] text-accent">& Solutions</div>
@@ -34,11 +41,11 @@ export function SiteHeader() {
           ))}
         </nav>
         <a
-          href="tel:+18005551234"
+          href="tel:+18328209261"
           className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
         >
           <Phone className="h-4 w-4" />
-          <span className="hidden sm:inline">(800) 555-1234</span>
+          <span className="hidden sm:inline">(832) 820-9261</span>
           <span className="sm:hidden">Call</span>
         </a>
       </div>
