@@ -50,7 +50,7 @@ export function SiteHeader() {
             <span className="sm:hidden">Call</span>
           </a>
           <a
-            href="https://wa.me/15551234567"
+            href="https://wa.me/18328209261"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"

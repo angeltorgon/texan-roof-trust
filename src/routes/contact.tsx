@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Schedule a free roof inspection. Call (800) 555-1234 or send us a message — we respond within one business hour.",
+          "Schedule a free roof inspection. Call (832) 820-9261 or send us a message — we respond within one business day.",
       },
       { property: "og:title", content: "Contact Texan Home Repair and Solutions" },
       {
