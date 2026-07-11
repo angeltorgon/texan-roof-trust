@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, MessageCircle, Menu } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoDesktop from "@/assets/logo-desktop.png";
+import logoMobile from "@/assets/logo-mobile.png";
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
@@ -13,17 +14,24 @@ const nav = [
 ] as const;
 
 const ctaButtonClass =
-  "inline-flex h-10 items-center justify-center gap-2 rounded-md bg-accent px-3 sm:px-4 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]";
+  "inline-flex h-10 items-center justify-center gap-1 sm:gap-2 rounded-md bg-accent px-2 sm:px-3 lg:px-4 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 py-1.5">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-2 px-3 sm:gap-4 sm:px-6 py-1.5">
         <Link to="/" className="shrink-0">
           <img
-            src={logo}
+            src={logoMobile}
             alt="Texan Home Repair and Solutions"
-            className="h-auto w-36 object-contain sm:w-48 lg:w-52"
+            className="h-auto w-12 object-contain sm:hidden"
+            width={150}
+            height={100}
+          />
+          <img
+            src={logoDesktop}
+            alt="Texan Home Repair and Solutions"
+            className="hidden h-auto object-contain sm:inline sm:w-28 lg:w-32"
             width={300}
             height={100}
           />
