@@ -66,27 +66,37 @@ function ContactPage() {
               },
               { icon: Clock, label: "Hours", val: "Mon–Sat · 7am to 7pm CT" },
             ].map((c) => (
-              <li key={c.label} className="flex gap-2 md:gap-4">
-                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent md:h-11 md:w-11">
-                  <c.icon className="h-4 w-4 md:h-5 md:w-5" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                    {c.label}
+              <li key={c.label}>
+                {c.href ? (
+                  <a
+                    href={c.href}
+                    target={c.href.startsWith("http") ? "_blank" : undefined}
+                    rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="flex gap-2 rounded-lg p-2 -m-2 transition-colors hover:bg-accent/5 md:gap-4"
+                  >
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent md:h-11 md:w-11">
+                      <c.icon className="h-4 w-4 md:h-5 md:w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                        {c.label}
+                      </div>
+                      <div className="text-foreground">{c.val}</div>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="flex gap-2 md:gap-4">
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent md:h-11 md:w-11">
+                      <c.icon className="h-4 w-4 md:h-5 md:w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                        {c.label}
+                      </div>
+                      <div className="text-foreground">{c.val}</div>
+                    </div>
                   </div>
-                  {c.href ? (
-                    <a
-                      href={c.href}
-                      target={c.href.startsWith("http") ? "_blank" : undefined}
-                      rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-foreground hover:text-accent"
-                    >
-                      {c.val}
-                    </a>
-                  ) : (
-                    <div className="text-foreground">{c.val}</div>
-                  )}
-                </div>
+                )}
               </li>
             ))}
           </ul>
