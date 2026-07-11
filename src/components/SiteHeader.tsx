@@ -102,7 +102,7 @@ export function SiteHeader() {
           </div>
         </div>
       </header>
-      <div aria-hidden className="h-[60px] sm:h-[72px]" />
+      <div aria-hidden className="h-13 sm:h-15" />
     </>
   );
 }
