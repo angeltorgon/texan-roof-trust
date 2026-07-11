@@ -238,7 +238,7 @@ function Index() {
           </div>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-accent px-8 py-4 text-base font-semibold text-accent-foreground shadow-lg transition-transform hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-accent px-8 py-4 text-base font-semibold text-accent-foreground shadow-lg transition-transform hover:scale-[1.02]"
           >
             Book Free Inspection <ArrowRight className="h-4 w-4" />
           </Link>
