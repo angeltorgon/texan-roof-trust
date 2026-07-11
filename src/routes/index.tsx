@@ -52,7 +52,7 @@ function Index() {
               <span className="text-accent">Texan Home Repair & Solutions</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
-              Two decades of honest craftsmanship across the Lone Star State. Free inspections,
+              Two decades of honest craftsmanship across the Houston area. Free inspections,
               straight talk, and a lifetime workmanship warranty on every job.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
@@ -169,6 +169,8 @@ function Index() {
         </div>
       </section>
 
+      <hr />
+
       {/* PROJECT SHOWCASE */}
       <ProjectShowcase />
 
@@ -185,22 +187,10 @@ function Index() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {[
             {
-              name: "Sarah M.",
-              city: "Austin, TX",
-              quote:
-                "After the May hailstorm, they handled everything with our insurance. New roof in 9 days. Couldn't be happier.",
-            },
-            {
               name: "James R.",
               city: "Houston, TX",
               quote:
                 "Honest pricing and they actually showed up when they said they would. That's rare. Highly recommend.",
-            },
-            {
-              name: "Linda T.",
-              city: "Dallas, TX",
-              quote:
-                "The owner came out personally to inspect. Felt like family, not a sales pitch. Beautiful work.",
             },
           ].map((t) => (
             <figure

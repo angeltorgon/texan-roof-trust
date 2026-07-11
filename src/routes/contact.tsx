@@ -60,9 +60,9 @@ function ContactPage() {
               },
               { icon: Clock, label: "Hours", val: "Mon–Sat · 7am to 7pm CT" },
             ].map((c) => (
-              <li key={c.label} className="flex gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                  <c.icon className="h-5 w-5" />
+              <li key={c.label} className="flex gap-2 md:gap-4">
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent md:h-11 md:w-11">
+                  <c.icon className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
                 <div>
                   <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">

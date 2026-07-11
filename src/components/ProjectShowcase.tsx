@@ -17,20 +17,6 @@ const projects = [
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    img: p2,
-    title: "Standing Seam Metal Roof",
-    customer: "The Park Residence",
-    city: "Austin, TX",
-    span: "",
-  },
-  {
-    img: p3,
-    title: "Spanish Tile Restoration",
-    customer: "Casa de Olivera",
-    city: "San Antonio, TX",
-    span: "",
-  },
-  {
     img: p4,
     title: "Full Tear-Off & Replacement",
     customer: "The Williams Family",
@@ -94,11 +80,10 @@ export function ProjectShowcase() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/30 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-primary-foreground">
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                  {p.city}
-                </div>
                 <div className="mt-1 font-display text-xl font-bold leading-tight">{p.title}</div>
-                <div className="mt-1 text-sm text-primary-foreground/80">{p.customer}</div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  {p.customer}
+                </div>
               </figcaption>
             </button>
           ))}
