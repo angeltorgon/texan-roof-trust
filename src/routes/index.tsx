@@ -19,7 +19,7 @@ import { buildFaqJsonLd, buildLocalBusinessJsonLd, buildSeoMeta, stringifyJsonLd
 export const Route = createFileRoute("/")({
   head: () =>
     buildSeoMeta({
-      title: "Houston Roofing Contractor | Texan Home Repair and Solutions",
+      title: "Texan Home Repair and Solutions | Houston Roofing Contractor",
       description:
         "Houston roofing contractor for roof replacement, roof repair, and storm restoration. Free inspections, transparent pricing, and lifetime workmanship warranty.",
       path: "/",

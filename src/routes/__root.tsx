@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 
 import appCss from "../styles.css?url";
 import { buildLocalBusinessJsonLd, stringifyJsonLd } from "@/lib/seo";
+import logoMobile from "@/assets/logo-mobile.png";
 
 function NotFoundComponent() {
   return (
@@ -36,6 +37,15 @@ export const Route = createRootRoute({
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        href: logoMobile,
+      },
+      {
+        rel: "apple-touch-icon",
+        href: logoMobile,
       },
     ],
   }),
