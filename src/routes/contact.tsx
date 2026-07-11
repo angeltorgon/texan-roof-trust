@@ -50,7 +50,7 @@ function ContactPage() {
               {
                 icon: MessageCircle,
                 label: "WhatsApp",
-                val: "Message us on WhatsApp",
+                val: "Click to message us on WhatsApp",
                 href: "https://wa.me/18328209261",
               },
               {
