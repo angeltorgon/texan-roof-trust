@@ -1,31 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-import { useState } from "react";
+import { buildLocalBusinessJsonLd, buildSeoMeta, stringifyJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Texan Home Repair and Solutions" },
-      {
-        name: "description",
-        content:
-          "Schedule a free roof inspection. Call (832) 820-9261 or send us a message — we respond within one business day.",
-      },
-      { property: "og:title", content: "Contact Texan Home Repair and Solutions" },
-      {
-        property: "og:description",
-        content: "Free inspections. Honest estimates. Reach our Texas team today.",
-      },
-    ],
-  }),
+  head: () =>
+    buildSeoMeta({
+      title: "Contact Houston Roofing Experts | Free Roof Inspection",
+      description:
+        "Call Texan Home Repair and Solutions at (832) 820-9261 for a free roof inspection in Houston and surrounding Texas communities.",
+      path: "/contact",
+      keywords:
+        "contact roofing contractor Houston, free roof inspection Houston, roofing estimate Texas",
+    }),
   component: ContactPage,
 });
 
 function ContactPage() {
-  const [sent, setSent] = useState(false);
   return (
     <SiteLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(buildLocalBusinessJsonLd("/contact")),
+        }}
+      />
       <section className="border-b border-border bg-secondary">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
@@ -101,80 +100,7 @@ function ContactPage() {
             ))}
           </ul>
         </div>
-
-        {/* <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-          className="rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-card)] md:col-span-3"
-        >
-          {sent ? (
-            <div className="py-12 text-center">
-              <div className="font-display text-3xl font-bold text-accent">Thank you!</div>
-              <p className="mt-3 text-muted-foreground">
-                We've got your message and will reach out within one business hour.
-              </p>
-            </div>
-          ) : (
-            <div className="grid gap-5">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Name" name="name" required />
-                <Field label="Phone" name="phone" type="tel" required />
-              </div>
-              <Field label="Email" name="email" type="email" required />
-              <Field label="Address (optional)" name="address" />
-              <div>
-                <label className="mb-2 block text-sm font-semibold text-foreground">
-                  How can we help?
-                </label>
-                <textarea
-                  rows={5}
-                  required
-                  className="w-full rounded-md border border-input bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/20"
-                  placeholder="Tell us about your roof — repair, replacement, storm damage, or just an inspection."
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center rounded-md bg-accent px-7 py-4 font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.01]"
-              >
-                Request Free Inspection
-              </button>
-              <p className="text-xs text-muted-foreground">
-                No spam. No pressure. We'll only use your info to contact you about your roof.
-              </p>
-            </div>
-          )}
-        </form> */}
       </section>
     </SiteLayout>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label htmlFor={name} className="mb-2 block text-sm font-semibold text-foreground">
-        {label}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        className="w-full rounded-md border border-input bg-background px-4 py-3 text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-accent/20"
-      />
-    </div>
   );
 }

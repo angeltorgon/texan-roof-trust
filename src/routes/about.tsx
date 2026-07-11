@@ -1,30 +1,31 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { Heart, Users, MapPin, Award, ArrowRight } from "lucide-react";
+import { Heart, Users, MapPin, ArrowRight } from "lucide-react";
 import rooferImg from "@/assets/roofer-working.jpg";
+import { buildLocalBusinessJsonLd, buildSeoMeta, stringifyJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Texan Home Repair and Solutions" },
-      {
-        name: "description",
-        content:
-          "A family-owned Texas roofing company built on honest work, fair prices, and a handshake. Meet the team protecting Texas homes.",
-      },
-      { property: "og:title", content: "About Texan Home Repair and Solutions" },
-      {
-        property: "og:description",
-        content: "Family-owned Texas roofers. Honest work. Fair prices. A handshake you can trust.",
-      },
-    ],
-  }),
+  head: () =>
+    buildSeoMeta({
+      title: "About Our Houston Roofing Team | Texan Home Repair and Solutions",
+      description:
+        "Meet the family-owned Houston roofing team behind Texan Home Repair and Solutions. Honest inspections, high-quality work, and local Texas service values.",
+      path: "/about",
+      keywords:
+        "about roofing company Houston, family owned roofing contractor, local Texas roofer",
+    }),
   component: AboutPage,
 });
 
 function AboutPage() {
   return (
     <SiteLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(buildLocalBusinessJsonLd("/about")),
+        }}
+      />
       <section className="border-b border-border">
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-24 md:grid-cols-2">
           <div>
@@ -46,7 +47,7 @@ function AboutPage() {
           <img
             src={rooferImg}
             alt="Texan Home Repair roofer at work"
-            className="rounded-2xl shadow-[var(--shadow-elevated)]"
+            className="rounded-2xl shadow-(--shadow-elevated)"
             width={1280}
             height={1280}
             loading="lazy"
@@ -82,7 +83,7 @@ function AboutPage() {
                 desc: "Born in Texas. Built for Texas weather. Loyal to Texas homes.",
               },
             ].map((v) => (
-              <div key={v.title} className="rounded-2xl bg-card p-8 shadow-[var(--shadow-card)]">
+              <div key={v.title} className="rounded-2xl bg-card p-8 shadow-(--shadow-card)">
                 <div
                   className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl text-accent-foreground"
                   style={{ background: "var(--gradient-brand)" }}
@@ -106,7 +107,7 @@ function AboutPage() {
           ].map((s) => (
             <div
               key={s.l}
-              className="rounded-2xl border border-border bg-card p-8 text-center shadow-[var(--shadow-card)]"
+              className="rounded-2xl border border-border bg-card p-8 text-center shadow-(--shadow-card)"
             >
               <div className="font-display text-5xl font-bold text-accent">{s.n}</div>
               <div className="mt-2 text-sm uppercase tracking-wider text-muted-foreground">

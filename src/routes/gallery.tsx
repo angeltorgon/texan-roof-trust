@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
+import {
+  buildImageGalleryJsonLd,
+  buildLocalBusinessJsonLd,
+  buildSeoMeta,
+  stringifyJsonLd,
+} from "@/lib/seo";
 
 import photo1 from "@/assets/gallery/PHOTO-2025-02-17-19-26-31.JPG";
 import photo2 from "@/assets/gallery/PHOTO-2025-02-17-19-26-32.JPG";
@@ -18,21 +24,14 @@ import photo14 from "@/assets/gallery/PHOTO-2026-06-21-11-51-33.JPEG";
 import photo15 from "@/assets/gallery/PHOTO-2026-06-21-11-51-34.JPEG";
 
 export const Route = createFileRoute("/gallery")({
-  head: () => ({
-    meta: [
-      { title: "Gallery — Texan Home Repair and Solutions" },
-      {
-        name: "description",
-        content:
-          "Browse our portfolio of completed roofing projects across Texas. See the quality craftsmanship Texan Home Repair and Solutions delivers.",
-      },
-      { property: "og:title", content: "Project Gallery — Texan Home Repair and Solutions" },
-      {
-        property: "og:description",
-        content: "Real roofs. Real results. Browse completed projects from our Texas roofing team.",
-      },
-    ],
-  }),
+  head: () =>
+    buildSeoMeta({
+      title: "Roofing Project Gallery | Houston Roof Replacements and Repairs",
+      description:
+        "Browse real before-and-after roofing results from Houston-area homes. See our completed roof replacements, repairs, and storm restoration projects.",
+      path: "/gallery",
+      keywords: "roofing gallery Houston, roof replacement photos, roof repair portfolio Texas",
+    }),
   component: GalleryPage,
 });
 
@@ -57,6 +56,18 @@ const photos = [
 function GalleryPage() {
   return (
     <SiteLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(buildImageGalleryJsonLd("/gallery")),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(buildLocalBusinessJsonLd("/gallery")),
+        }}
+      />
       {/* PAGE HEADER */}
       <section className="border-b border-border bg-secondary">
         <div className="mx-auto max-w-7xl px-6 py-20">
@@ -79,7 +90,7 @@ function GalleryPage() {
           {photos.map((photo, i) => (
             <div
               key={i}
-              className="mb-4 overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+              className="mb-4 overflow-hidden rounded-2xl border border-border shadow-(--shadow-card) transition-transform hover:-translate-y-1"
             >
               <img src={photo.src} alt={photo.alt} className="w-full object-cover" loading="lazy" />
             </div>

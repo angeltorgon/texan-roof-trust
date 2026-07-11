@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { buildLocalBusinessJsonLd, stringifyJsonLd } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -29,14 +30,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Texan Home Repair and Solutions — Trusted Texas Roofers" },
-      { name: "description", content: "Family-owned, licensed roofing & home repair experts serving Texas. Free inspections, honest estimates, lifetime workmanship warranty." },
-      { name: "author", content: "Texan Home Repair and Solutions" },
-      { property: "og:title", content: "Texan Home Repair and Solutions" },
-      { property: "og:description", content: "Trusted Texas roofers. Free inspections, honest estimates, lifetime workmanship warranty." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#12202c" },
     ],
     links: [
       {
@@ -56,10 +50,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <HeadContent />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: stringifyJsonLd(buildLocalBusinessJsonLd()),
+          }}
+        />
         {children}
         <Scripts />
       </body>

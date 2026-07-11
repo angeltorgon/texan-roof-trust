@@ -14,24 +14,36 @@ import {
 import { ProjectShowcase } from "@/components/ProjectShowcase";
 import heroImg from "@/assets/hero-roof.jpg";
 import rooferImg from "@/assets/roofer-working.jpg";
+import { buildFaqJsonLd, buildLocalBusinessJsonLd, buildSeoMeta, stringifyJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Texan Home Repair and Solutions — Trusted Texas Roofers" },
-      {
-        name: "description",
-        content:
-          "Family-owned Texas roofers. Free inspections, transparent estimates, lifetime workmanship warranty. Serving homeowners across Texas.",
-      },
-    ],
-  }),
+  head: () =>
+    buildSeoMeta({
+      title: "Houston Roofing Contractor | Texan Home Repair and Solutions",
+      description:
+        "Houston roofing contractor for roof replacement, roof repair, and storm restoration. Free inspections, transparent pricing, and lifetime workmanship warranty.",
+      path: "/",
+      keywords:
+        "Houston roofing company, roof replacement Houston, roof repair near me, hail damage roof repair, free roof inspection",
+    }),
   component: Index,
 });
 
 function Index() {
   return (
     <SiteLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(buildLocalBusinessJsonLd("/")),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: stringifyJsonLd(buildFaqJsonLd()),
+        }}
+      />
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -58,7 +70,7 @@ function Index() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-accent px-7 py-4 text-base font-semibold text-accent-foreground shadow-[var(--shadow-elevated)] transition-transform hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-7 py-4 text-base font-semibold text-accent-foreground shadow-(--shadow-elevated) transition-transform hover:scale-[1.02]"
               >
                 Get a Free Inspection <ArrowRight className="h-4 w-4" />
               </Link>
@@ -112,7 +124,7 @@ function Index() {
           ].map((s) => (
             <div
               key={s.title}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-(--shadow-card) transition-transform hover:-translate-y-1"
             >
               <div
                 className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl text-accent-foreground"
@@ -134,7 +146,7 @@ function Index() {
             <img
               src={rooferImg}
               alt="Roofer installing shingles"
-              className="rounded-2xl shadow-[var(--shadow-elevated)]"
+              className="rounded-2xl shadow-(--shadow-elevated)"
               width={1280}
               height={1280}
               loading="lazy"
@@ -195,7 +207,7 @@ function Index() {
           ].map((t) => (
             <figure
               key={t.name}
-              className="rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-card)]"
+              className="rounded-2xl border border-border bg-card p-8 shadow-(--shadow-card)"
             >
               <div className="flex gap-0.5 text-accent">
                 {Array.from({ length: 5 }).map((_, i) => (
