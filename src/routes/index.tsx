@@ -160,9 +160,9 @@ function Index() {
               Built on a handshake. Backed by a warranty.
             </h2>
             <p className="mt-5 text-muted-foreground">
-              We're a family company with deep roots in Texas. Our crews are full-time employees —
-              never day labor — and every job is overseen by an owner. That's how we've earned the
-              trust of thousands of neighbors.
+              We're a family-run Texas company that takes pride in doing honest, dependable work.
+              You'll see the same familiar team from inspection to final cleanup, and an owner stays
+              involved on every project so you always know who to call.
             </p>
             <ul className="mt-8 space-y-4">
               {[

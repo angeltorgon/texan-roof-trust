@@ -78,7 +78,7 @@ function ServicesPage() {
             Every roof. Every season. <span className="text-accent">Every Texan.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            From minor repairs to full replacements, our crews bring two decades of craftsmanship to
+            From minor repairs to full replacements, our crews bring over a decade of craftsmanship
             your home.
           </p>
         </div>
