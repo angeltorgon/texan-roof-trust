@@ -4,8 +4,8 @@ import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-4">
-        <div className="md:col-span-2">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-[1.8fr_0.5fr_1.7fr] md:gap-6 lg:gap-10">
+        <div>
           <div className="font-display text-2xl font-bold">
             Texan Home Repair <span className="text-accent">& Solutions</span>
           </div>
@@ -43,7 +43,7 @@ export function SiteFooter() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="min-w-0">
           <h4 className="text-sm font-semibold uppercase tracking-wider text-accent">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
             <li className="flex flex-wrap items-center gap-2">
@@ -67,10 +67,10 @@ export function SiteFooter() {
             <li>
               <a
                 href="mailto:claims@texanhomerepairsolutions.com"
-                className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-sm transition-transform hover:scale-[1.02]"
               >
-                <Mail className="h-4 w-4" />
-                claims@texanhomerepairsolutions.com
+                <Mail className="h-4 w-4 shrink-0" />
+                <span>claims@texanhomerepairsolutions.com</span>
               </a>
             </li>
             <li className="flex items-center gap-2">
