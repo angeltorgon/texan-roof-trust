@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
@@ -48,6 +48,12 @@ function ContactPage() {
             {[
               { icon: Phone, label: "Phone", val: "(832) 820-9261", href: "tel:+18328209261" },
               {
+                icon: MessageCircle,
+                label: "WhatsApp",
+                val: "Message us on WhatsApp",
+                href: "https://wa.me/18328209261",
+              },
+              {
                 icon: Mail,
                 label: "Email",
                 val: "claims@texanhomerepairsolutions.com",
@@ -69,7 +75,12 @@ function ContactPage() {
                     {c.label}
                   </div>
                   {c.href ? (
-                    <a href={c.href} className="text-foreground hover:text-accent">
+                    <a
+                      href={c.href}
+                      target={c.href.startsWith("http") ? "_blank" : undefined}
+                      rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-foreground hover:text-accent"
+                    >
                       {c.val}
                     </a>
                   ) : (
@@ -81,7 +92,7 @@ function ContactPage() {
           </ul>
         </div>
 
-        <form
+        {/* <form
           onSubmit={(e) => {
             e.preventDefault();
             setSent(true);
@@ -125,7 +136,7 @@ function ContactPage() {
               </p>
             </div>
           )}
-        </form>
+        </form> */}
       </section>
     </SiteLayout>
   );
