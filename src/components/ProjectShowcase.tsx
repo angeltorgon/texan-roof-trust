@@ -13,28 +13,28 @@ const projects = [
     img: p1,
     title: "Architectural Shingle Replacement",
     customer: "The Hernandez Family",
-    city: "Round Rock, TX",
+    city: "",
     span: "md:col-span-2 md:row-span-2",
   },
   {
     img: p4,
     title: "Full Tear-Off & Replacement",
     customer: "The Williams Family",
-    city: "Plano, TX",
+    city: "",
     span: "",
   },
   {
     img: p5,
     title: "Premium Ridge Cap Detail",
     customer: "The Nguyen Home",
-    city: "Houston, TX",
+    city: "",
     span: "",
   },
   {
     img: p6,
     title: "Storm Damage Restoration",
     customer: "The Carter Family",
-    city: "Fort Worth, TX",
+    city: "",
     span: "md:col-span-2",
   },
 ];
@@ -105,13 +105,12 @@ export function ProjectShowcase() {
                   className="max-h-[80vh] w-full object-contain"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary via-primary/70 to-transparent p-6 text-primary-foreground sm:p-8">
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                    {project.city}
-                  </div>
                   <div className="mt-1 font-display text-2xl font-bold sm:text-3xl">
                     {project.title}
                   </div>
-                  <div className="mt-1 text-primary-foreground/85">{project.customer}</div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    {project.customer}
+                  </div>
                 </div>
               </div>
             </>
