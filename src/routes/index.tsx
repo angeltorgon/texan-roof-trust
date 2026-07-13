@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
     buildSeoMeta({
       title: "Texan Home Repair and Solutions | Houston Roofing Contractor",
       description:
-        "Houston roofing contractor for roof replacement, roof repair, and storm restoration. Free inspections, transparent pricing, and lifetime workmanship warranty.",
+        "Houston roofing contractor for roof replacement, roof repair, and storm restoration. Free inspections, transparent pricing, and workmanship warranty.",
       path: "/",
       keywords:
         "Houston roofing company, roof replacement Houston, roof repair near me, hail damage roof repair, free roof inspection",
@@ -65,7 +65,7 @@ function Index() {
             </h1>
             <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
               Two decades of honest craftsmanship across the Houston area. Free inspections,
-              straight talk, and a lifetime workmanship warranty on every job.
+              straight talk, and a workmanship warranty on every job.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
@@ -168,7 +168,7 @@ function Index() {
               {[
                 "Free, no-pressure inspections with a written report",
                 "Transparent estimates — no hidden fees, ever",
-                "Lifetime workmanship warranty on every install",
+                "Workmanship warranty on every install",
                 "We answer the phone when you call. Always.",
               ].map((p) => (
                 <li key={p} className="flex items-start gap-3">
