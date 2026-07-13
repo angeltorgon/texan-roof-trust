@@ -199,10 +199,19 @@ function Index() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {[
             {
+              name: "Sarah M.",
+              quote:
+                "After the May hailstorm, they handled everything with our insurance. New roof in 9 days. Couldn't be happier.",
+            },
+            {
               name: "James R.",
-              city: "Houston, TX",
               quote:
                 "Honest pricing and they actually showed up when they said they would. That's rare. Highly recommend.",
+            },
+            {
+              name: "Linda T.",
+              quote:
+                "The owner came out personally to inspect. Felt like family, not a sales pitch. Beautiful work.",
             },
           ].map((t) => (
             <figure

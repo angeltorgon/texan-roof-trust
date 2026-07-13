@@ -101,9 +101,9 @@ function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid gap-6 sm:grid-cols-3">
           {[
-            { n: "10yr +", l: "Roofing experience" },
-            { n: "10yr +", l: "Insurance claims experts" },
-            { n: "5yr +", l: "workmanship" },
+            { n: "10+ yrs", l: "Roofing experience" },
+            { n: "10+ yrs", l: "Insurance claims experts" },
+            { n: "5+ yrs", l: "Workmanship warranty" },
           ].map((s) => (
             <div
               key={s.l}
