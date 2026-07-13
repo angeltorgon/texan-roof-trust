@@ -19,7 +19,7 @@ const ctaButtonClass =
 export function SiteHeader() {
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md h-13 sm:h-15">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md h-14 sm:h-15">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-1.5 sm:gap-4 sm:px-6">
           <Link to="/" className="shrink-0">
             <img
@@ -102,7 +102,7 @@ export function SiteHeader() {
           </div>
         </div>
       </header>
-      <div aria-hidden className="h-13 sm:h-15" />
+      <div aria-hidden className="h-14 sm:h-15" />
     </>
   );
 }
