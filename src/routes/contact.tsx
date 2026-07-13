@@ -63,7 +63,7 @@ function ContactPage() {
                 label: "Service Area",
                 val: "All of Houston, TX and surrounding areas",
               },
-              { icon: Clock, label: "Hours", val: "Mon–Sat · 7am to 7pm CT" },
+              { icon: Clock, label: "Hours", val: "Mon–Sun · 8am to 9pm CT" },
             ].map((c) => (
               <li key={c.label}>
                 {c.href ? (
